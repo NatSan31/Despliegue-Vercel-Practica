@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     // Escenario A: Obtener un registro específico por ID
     if (query.id) {
       const { data, error } = await supabase
-        .from('practica')
+        .from('usuarios')
         .select('*')
         .eq('id', query.id)
         .single();
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
     // Escenario B: Obtener todos los registros
     const { data, error } = await supabase
-      .from('practica')
+      .from('usuarios')
       .select('*');
 
     if (error) throw error; // Lanza el error para que lo atrape el bloque catch
